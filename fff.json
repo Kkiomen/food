@@ -1,0 +1,27 @@
+{
+    "ingredients": [
+        {
+            "section": "Nazwa sekcji",
+            "items": [
+                {
+                    "name": "Nazwa składnika w podstawowej formie np. masło orzechowe",
+                    "quantity": "2",
+                    "unit": "łyżka",
+                    "substitutes": [ // informacje o produktach, na które można podmienić
+                        {
+                            "name": "Nazwa składnika w podstawowej formie np. masło orzechowe",
+                            "quantity": "2",
+                            "unit": "łyżka"
+                        }
+                    ]
+                },
+                {
+                    "name": "woda",
+                    "quantity": "70",
+                    "unit": "ml",
+                    "substitutes": []
+                }
+            ]
+        }
+    ]
+}

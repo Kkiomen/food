@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan:*)",
+      "Bash(dir:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(python:*)",
+      "Bash(php -r:*)",
+      "Bash(php check_recipe.php:*)",
+      "Bash(del check_recipe.php)",
+      "Bash(Remove-Item check_recipe.php -ErrorAction SilentlyContinue)",
+      "Bash(php test_smaker.php:*)"
+    ]
+  }
+}
