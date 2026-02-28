@@ -9,7 +9,8 @@ use Illuminate\Console\Command;
 class ScrapCategoryCommand extends Command
 {
     protected $signature = 'scrap:category {url}
-                            {--limit=0 : Limit number of pages to scrape (0 = no limit)}';
+                            {--limit=0 : Limit number of pages to scrape (0 = no limit)}
+                            {--skip=0 : Skip first N pages (resume from page N+1)}';
 
     protected $description = 'Scrape recipe URLs from a category page';
 
@@ -37,24 +38,37 @@ class ScrapCategoryCommand extends Command
         $lastPage = $scraper->getLastPageNumber($html);
         $limit = (int) $this->option('limit');
 
+        $skip = (int) $this->option('skip');
+        $startPage = $skip + 1;
+
         $pagesToProcess = $lastPage;
-        if ($limit > 0 && $limit < $lastPage) {
-            $pagesToProcess = $limit;
-            $this->info("Detected {$lastPage} page(s) in this category, but limiting to {$limit} page(s).");
+        if ($limit > 0 && $limit < ($lastPage - $skip)) {
+            $pagesToProcess = $skip + $limit;
+            $this->info("Detected {$lastPage} page(s) in this category, starting from page {$startPage}, limiting to {$limit} page(s).");
         } else {
-            $this->info("Detected {$lastPage} page(s) in this category.");
+            $pagesToProcess = $lastPage;
+            if ($skip > 0) {
+                $this->info("Detected {$lastPage} page(s) in this category, skipping first {$skip} page(s).");
+            } else {
+                $this->info("Detected {$lastPage} page(s) in this category.");
+            }
+        }
+
+        if ($startPage > $lastPage) {
+            $this->warn("Skip value ({$skip}) exceeds total pages ({$lastPage}). Nothing to scrape.");
+            return self::SUCCESS;
         }
 
         $totalFound = 0;
         $newUrls = 0;
         $duplicates = 0;
 
-        for ($page = 1; $page <= $pagesToProcess; $page++) {
+        for ($page = $startPage; $page <= $pagesToProcess; $page++) {
             $pageUrl = $this->buildPageUrl($url, $page, $type);
 
             $this->line("Fetching page {$page}/{$lastPage}: {$pageUrl}");
 
-            if ($page > 1) {
+            if ($page > 1 || $skip > 0) {
                 $html = $scraper->fetchPage($pageUrl);
                 if (!$html) {
                     $this->warn("Failed to fetch page {$page}, skipping...");
