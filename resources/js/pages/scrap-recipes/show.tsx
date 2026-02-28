@@ -144,11 +144,27 @@ export default function Show({ recipe }: Props) {
                             </Card>
                         )}
 
-                        {/* Steps */}
+                        {/* Prepared Steps */}
+                        {recipe.prepared_steps && recipe.prepared_steps.length > 0 && (
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle>Prepared Steps</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <ol className="list-decimal space-y-3 pl-5">
+                                        {recipe.prepared_steps.map((step, i) => (
+                                            <li key={i} className="text-sm">{step.text}</li>
+                                        ))}
+                                    </ol>
+                                </CardContent>
+                            </Card>
+                        )}
+
+                        {/* Original Steps */}
                         {recipe.steps && recipe.steps.length > 0 && (
                             <Card>
                                 <CardHeader>
-                                    <CardTitle>Steps</CardTitle>
+                                    <CardTitle>Original Steps</CardTitle>
                                 </CardHeader>
                                 <CardContent>
                                     <ol className="list-decimal space-y-3 pl-5">

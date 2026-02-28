@@ -47,6 +47,7 @@ export interface ScrapRecipe {
     images: string[] | null;
     keywords: string[] | null;
     prepared_ingredients: Record<string, unknown>[] | null;
+    prepared_steps: { text: string }[] | null;
     rating_value: string | null;
     rating_count: number | null;
     comment_count: number | null;

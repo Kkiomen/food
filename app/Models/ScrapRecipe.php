@@ -29,6 +29,7 @@ class ScrapRecipe extends Model
         'diet',
         'keywords',
         'prepared_ingredients',
+        'prepared_steps',
     ];
 
     protected function casts(): array
@@ -40,6 +41,7 @@ class ScrapRecipe extends Model
             'images' => 'array',
             'keywords' => 'array',
             'prepared_ingredients' => 'array',
+            'prepared_steps' => 'array',
             'published_at' => 'datetime',
             'modified_at' => 'datetime',
             'rating_value' => 'decimal:1',
