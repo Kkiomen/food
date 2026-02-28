@@ -15,7 +15,9 @@
       "Bash(./vendor/bin/sail npm:*)",
       "Bash(ls:*)",
       "Bash(npx shadcn@latest:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(head:*)",
+      "Bash(docker exec:*)"
     ]
   }
 }
