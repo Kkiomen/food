@@ -9,7 +9,10 @@
       "Bash(php check_recipe.php:*)",
       "Bash(del check_recipe.php)",
       "Bash(Remove-Item check_recipe.php -ErrorAction SilentlyContinue)",
-      "Bash(php test_smaker.php:*)"
+      "Bash(php test_smaker.php:*)",
+      "Bash(touch:*)",
+      "Bash(./vendor/bin/sail artisan:*)",
+      "Bash(./vendor/bin/sail npm:*)"
     ]
   }
 }
