@@ -13,7 +13,9 @@
       "Bash(touch:*)",
       "Bash(./vendor/bin/sail artisan:*)",
       "Bash(./vendor/bin/sail npm:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npx shadcn@latest:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

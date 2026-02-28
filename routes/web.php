@@ -14,6 +14,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
+
+    Route::resource('scrap-recipes', \App\Http\Controllers\ScrapRecipeController::class)
+        ->only(['index', 'show', 'edit', 'update', 'destroy']);
 });
 
 

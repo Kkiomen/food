@@ -29,6 +29,45 @@ export interface SharedData {
     [key: string]: unknown;
 }
 
+export interface ScrapRecipe {
+    id: number;
+    name: string;
+    url: string | null;
+    author: string | null;
+    category: string | null;
+    cuisine: string | null;
+    description: string | null;
+    prep_time: string | null;
+    cook_time: string | null;
+    total_time: string | null;
+    servings: string | null;
+    nutrition: Record<string, string> | null;
+    ingredients: string[] | null;
+    steps: { text: string; name?: string }[] | null;
+    images: string[] | null;
+    keywords: string[] | null;
+    prepared_ingredients: Record<string, unknown>[] | null;
+    rating_value: string | null;
+    rating_count: number | null;
+    comment_count: number | null;
+    diet: string | null;
+    published_at: string | null;
+    modified_at: string | null;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface PaginatedData<T> {
+    data: T[];
+    current_page: number;
+    last_page: number;
+    per_page: number;
+    total: number;
+    from: number | null;
+    to: number | null;
+    links: { url: string | null; label: string; active: boolean }[];
+}
+
 export interface User {
     id: number;
     name: string;
