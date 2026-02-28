@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, UtensilsCrossed } from 'lucide-react';
+import { BookOpen, Folder, FolderOpen, LayoutGrid, UtensilsCrossed } from 'lucide-react';
 
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -14,6 +14,7 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import { index as scrapCategoriesIndex } from '@/routes/scrap-categories';
 import { index as scrapRecipesIndex } from '@/routes/scrap-recipes';
 import { type NavItem } from '@/types';
 
@@ -29,6 +30,11 @@ const mainNavItems: NavItem[] = [
         title: 'Scrap Recipes',
         href: scrapRecipesIndex(),
         icon: UtensilsCrossed,
+    },
+    {
+        title: 'Scrap Categories',
+        href: scrapCategoriesIndex(),
+        icon: FolderOpen,
     },
 ];
 

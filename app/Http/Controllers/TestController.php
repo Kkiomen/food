@@ -81,10 +81,10 @@ class TestController extends Controller
 //- ======================================================================
 //- ======================================================================
 
-        $categories = ScrapCategory::where('is_scraped', 0)->where('type', 'smaker')->get();
-        foreach ($categories as $category) {
-            ScrapeRecipeJob::dispatch($category);
-        }
+//        $categories = ScrapCategory::where('is_scraped', 0)->where('type', 'smaker')->get();
+//        foreach ($categories as $category) {
+//            ScrapeRecipeJob::dispatch($category);
+//        }
 
 
 

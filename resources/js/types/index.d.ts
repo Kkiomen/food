@@ -68,6 +68,15 @@ export interface PaginatedData<T> {
     links: { url: string | null; label: string; active: boolean }[];
 }
 
+export interface ScrapCategory {
+    id: number;
+    url: string;
+    type: string;
+    is_scraped: boolean;
+    created_at: string;
+    updated_at: string;
+}
+
 export interface User {
     id: number;
     name: string;

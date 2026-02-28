@@ -17,6 +17,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('scrap-recipes', \App\Http\Controllers\ScrapRecipeController::class)
         ->only(['index', 'show', 'edit', 'update', 'destroy']);
+
+    Route::resource('scrap-categories', \App\Http\Controllers\ScrapCategoryController::class)
+        ->only(['index', 'show', 'edit', 'update', 'destroy']);
 });
 
 
